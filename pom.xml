@@ -14,6 +14,15 @@
     <version>1.0.BUILD-SNAPSHOT</version>
     <name>wis-dev-framework</name>
     <description>wis-dev-framework</description>
+    <url>https://github.com/liubo777/spring-boot-wis</url>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
     <properties>
         <!-- Dependency Versions -->
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -32,6 +41,22 @@
             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
         </repository>
     </repositories>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <scm>
+        <connection>scm:git:git://github.com/liubo777/spring-boot-wis.git</connection>
+        <developerConnection>scm:git:ssh://github.com/liubo777/spring-boot-wis.git</developerConnection>
+        <url>http://github.com/liubo777/spring-boot-wis/tree/master</url>
+    </scm>
+
+
     <modules>
         <module>curator-simple-config</module>
     </modules>
