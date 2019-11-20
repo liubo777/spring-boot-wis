@@ -33,7 +33,7 @@
         </repository>
     </repositories>
     <modules>
-        <module>com.wis.curator.curator-simple-config</module>
+        <module>curator-simple-config</module>
     </modules>
     <developers>
         <developer>
