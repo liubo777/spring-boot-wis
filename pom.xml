@@ -32,6 +32,9 @@
             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
         </repository>
     </repositories>
+    <modules>
+        <module>com.wis.curator.curator-simple-config</module>
+    </modules>
     <developers>
         <developer>
             <name>liubo</name>
