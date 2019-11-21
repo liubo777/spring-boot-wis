@@ -1,6 +1,7 @@
 ### 简单介绍 ###
 作用是可以动态的修改日志等级，需要再application.yml中配置
 
+#####application.yml:
 ```$xslt
 wis:
   curatorlog:
@@ -9,6 +10,25 @@ wis:
       connect-string: your zk ip:port
       namespace: ${spring.application.name}
       watcher-path: log    
+```
+#####pom:
+```xml
+    <repositories>
+        <repository>
+            <name>mvn-release-repository</name>
+            <id>mvn-release-repository</id>
+            <url>https://raw.github.com/liubo777/mvn-repository/release</url>
+        </repository>
+    </repositories>
+    
+    <dependencies>
+        <dependency>
+            <groupId>com.wis.curator</groupId>
+            <artifactId>curator-simple-config</artifactId>
+            <version>1.0</version>
+        </dependency>            
+    </dependencies>        
+    
 ```
 
 使用的节点是
