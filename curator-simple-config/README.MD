@@ -37,3 +37,6 @@ K-V为
 com.xxx.xxx      debug
 那么会自动将com.xxx.xxx的日志等级设为debug
 日志使用的lombok封装的slf4j
+
+V的值分为5种
+info、debug、warn、error、all
