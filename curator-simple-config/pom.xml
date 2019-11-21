@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.wis.springboot</groupId>
         <artifactId>spring-boot-wis</artifactId>
-        <version>1.0.BUILD-SNAPSHOT</version>
+        <version>1.0</version>
         <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.wis.curator</groupId>
