@@ -41,20 +41,7 @@
             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
         </repository>
     </repositories>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
-    <scm>
-        <connection>scm:git:git://github.com/liubo777/spring-boot-wis.git</connection>
-        <developerConnection>scm:git:ssh://github.com/liubo777/spring-boot-wis.git</developerConnection>
-        <url>http://github.com/liubo777/spring-boot-wis/tree/master</url>
-    </scm>
 
 
     <modules>
@@ -69,5 +56,31 @@
     <dependencies>
 
     </dependencies>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <scm>
+        <connection>scm:git:git://github.com/liubo777/spring-boot-wis.git</connection>
+        <developerConnection>scm:git:ssh://github.com/liubo777/spring-boot-wis.git</developerConnection>
+        <url>http://github.com/liubo777/spring-boot-wis/tree/master</url>
+    </scm>
 
 </project>
