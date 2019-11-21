@@ -11,7 +11,7 @@
 
     <groupId>com.wis.springboot</groupId>
     <artifactId>spring-boot-wis</artifactId>
-    <version>1.0.BUILD-SNAPSHOT</version>
+    <version>1.0</version>
     <name>wis-dev-framework</name>
     <description>wis-dev-framework</description>
     <url>https://github.com/liubo777/spring-boot-wis</url>
