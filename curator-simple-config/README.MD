@@ -1,7 +1,7 @@
 ### 简单介绍 ###
 作用是可以动态的修改日志等级，需要再application.yml中配置
 
-#####application.yml:
+#####application.yml:  #####
 ```$xslt
 wis:
   curatorlog:
@@ -11,7 +11,7 @@ wis:
       namespace: ${spring.application.name}
       watcher-path: log    
 ```
-#####pom:
+#####pom:  #####
 ```xml
     <repositories>
         <repository>
@@ -31,7 +31,7 @@ wis:
     
 ```
 
-使用的节点是
+#####备注  #####
 /${spring.application.name}/log/下的节点，比如
 K-V为
 com.xxx.xxx      debug
