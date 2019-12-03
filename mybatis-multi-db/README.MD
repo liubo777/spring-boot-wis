@@ -1,7 +1,7 @@
 ### 简单介绍 ###
 基于druid官网的starter做的多数据源封装,目前最多支持10个数据源，数据源的配置参数和druid的配置完全相同
 
-##application.yml: 
+#### application.yml: 
 ```$xslt
 spring:
   datasource:
