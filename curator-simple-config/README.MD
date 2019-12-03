@@ -32,12 +32,9 @@ wis:
 ```
 
 #### 备注 
-/${spring.application.name}/log/下的节点，比如
-K-V为
-com.xxx.xxx      debug
-那么会自动将com.xxx.xxx的日志等级设为debug
-日志使用的lombok封装的slf4j
-log可以在watcher-path中重新指定
-
-V的值分为5种
-info、debug、warn、error、all
+1. /${spring.application.name}/log/下的节点，比如
+K-V为 com.xxx.xxx      debug，
+那么会自动将com.xxx.xxx的日志等级设为debug。
+2. 日志使用的lombok封装的slf4j。
+3. log可以在watcher-path中重新指定。
+4. V的值分为5种 info、debug、warn、error、all。
