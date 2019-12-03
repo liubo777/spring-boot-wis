@@ -50,6 +50,4 @@ spring:
     List findLoginDtoByuserName(@Param("username") String userName);
 
 ```
-db1 是默认数据源
-在需要切换数据源的方法上加注释就可以了，在相应的mapper或者service方法上加注解就可以了
-因为有默认数据源，所以仅在需要更改数据源的方法上加注释就可以了。
+因为db1 是默认数据源，所以只在需要切换数据源的方法上加注解就可以。
