@@ -41,8 +41,13 @@ spring:
     
 ```
  
+ #####启动类：
+ ```java
+     @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+ ```
+ 注解加上exclude = {DataSourceAutoConfiguration.class}
 
-#####java:
+#####使用:
 ```java
 
     @Select("select * from a where loginname = #{username}")
@@ -51,3 +56,5 @@ spring:
 
 ```
 因为db1 是默认数据源，所以只在需要切换数据源的方法上加注解就可以。
+
+
