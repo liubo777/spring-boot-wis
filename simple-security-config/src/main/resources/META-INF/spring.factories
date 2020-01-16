@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.wis.curator.config.CuratorLogConfiguration
+  com.wis.security.config.SimpleWebSecirutyConfiguration
