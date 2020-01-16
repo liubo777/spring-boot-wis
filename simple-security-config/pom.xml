@@ -8,8 +8,19 @@
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <groupId>com.wis.security</groupId>
+    <version>1.0</version>
+    <name>simple-security-config</name>
+    <description>simple configuration file for spring security</description>
     <artifactId>simple-security-config</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+    </dependencies>
 
 </project>
