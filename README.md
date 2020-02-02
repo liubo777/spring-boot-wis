@@ -9,6 +9,9 @@
 2.[mybatis-multi-db](https://github.com/liubo777/spring-boot-wis/tree/master/mybatis-multi-db)
 
 
+3.[simple-security-config](https://github.com/liubo777/spring-boot-wis/tree/master/simple-security-config)
+
+
 
 
 
