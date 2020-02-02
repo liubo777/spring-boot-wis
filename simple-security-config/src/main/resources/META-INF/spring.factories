@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.wis.security.config.SimpleWebSecurityConfiguration
+  com.wis.security.config.SimpleConfiguration

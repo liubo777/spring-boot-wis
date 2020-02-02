@@ -1,4 +1,4 @@
-package com.wis.security.encoder;
+package com.wis.security.util;
 
 import org.springframework.util.StringUtils;
 

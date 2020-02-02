@@ -3,6 +3,7 @@ package com.wis.security.pojo;
 import javax.servlet.http.HttpServletRequest;
 
 /**
+ * 存储用来校验的验证码和答案
  * Created by liuBo
  * 2020/1/10.
  */

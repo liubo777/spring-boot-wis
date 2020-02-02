@@ -1,5 +1,6 @@
 package com.wis.security.encoder;
 
+import com.wis.security.util.PasswordEncoderUtils;
 import org.springframework.security.crypto.password.PasswordEncoder;
 /**
  * Created by liuBo

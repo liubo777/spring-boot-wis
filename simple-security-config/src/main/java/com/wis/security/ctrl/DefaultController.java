@@ -1,6 +1,7 @@
 package com.wis.security.ctrl;
 
 import com.google.code.kaptcha.Producer;
+import com.wis.security.pojo.WisSecurityConfigurationProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +22,8 @@ import java.io.IOException;
 public class DefaultController {
     @Autowired
     private Producer producer;
+    @Autowired
+    private WisSecurityConfigurationProperty wisSecurityConfigurationProperty;
 
     @GetMapping("/captcha.jpg")
     public void captcha(HttpServletRequest request, HttpServletResponse response) throws IOException {

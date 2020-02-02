@@ -1,5 +1,6 @@
 package com.wis.security.encoder;
 
+import com.wis.security.util.MD5Util;
 import org.springframework.security.crypto.password.PasswordEncoder;
 /**
  * Created by liuBo

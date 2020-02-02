@@ -14,20 +14,8 @@ import java.io.IOException;
  * 2019/12/16.
  */
 @Slf4j
-public class LoginErrorHandler implements AuthenticationFailureHandler {
-    private String defaultFailureUrl = "/login";
-    public void onAuthenticationFailure(HttpServletRequest request,
-                                        HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-
-        if ("Captcha does not match.".equals(exception.getMessage())){
-            request.setAttribute("error","code");
-        }else{
-            request.setAttribute("error","info");
-        }
-        request.getRequestDispatcher(defaultFailureUrl)
-                .forward(request, response);
-
-    }
-
-
+public abstract class LoginErrorHandler implements AuthenticationFailureHandler {
+    protected String defaultFailureUrl = "/login";
+    abstract  public void onAuthenticationFailure(HttpServletRequest request,
+                                        HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException;
 }

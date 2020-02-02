@@ -1,4 +1,4 @@
-package com.wis.security.encoder;
+package com.wis.security.util;
 
 /*
  * Copyright 2002-2016 the original author or authors.

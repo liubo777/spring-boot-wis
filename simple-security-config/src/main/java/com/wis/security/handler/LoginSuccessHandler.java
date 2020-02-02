@@ -1,11 +1,6 @@
 package com.wis.security.handler;
 
-import com.wiscess.textbook.common.Constant;
-import com.wiscess.textbook.mapper.TbokUserMapper;
-import com.wiscess.textbook.model.TbokUser;
-import com.wiscess.textbook.service.DictService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 
@@ -19,10 +14,8 @@ import java.io.IOException;
  * 2019/12/16.
  */
 @Slf4j
-public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
-	@Autowired
-    private DictService dictService;
-	
+public abstract class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
+
     public LoginSuccessHandler(){
         log.debug("loginSuccessHandler init");
         this.setAlwaysUseDefaultTargetUrl(true);
@@ -38,22 +31,9 @@ public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessH
         }
         super.onAuthenticationSuccess(request, response, authentication);
     }
-    @Autowired
-    private TbokUserMapper tbokUserMapper;
-    protected void onLogonSuccess(HttpServletRequest request, HttpServletResponse response,
-                                  Authentication authentication) {
-        //输出登录提示信息
-        String authName = authentication.getName();
-        if (authName != null) {
-            //验证通过的处理
-            //保存当前用户的信息
-            TbokUser dto = tbokUserMapper.selectByUserName(authName);
-            String roleName = dictService.getNameById(Integer.valueOf(dto.getUserRole()));
-            dto.setRoleName(roleName);
-            request.getSession().setAttribute(Constant.KEY_LOGIN_USER, dto);
-            //查询当前用户对应角色的菜单
-        }
-    }
+
+    public abstract void onLogonSuccess(HttpServletRequest request, HttpServletResponse response,
+                                  Authentication authentication);
 
     public String getIpAddress(HttpServletRequest request){
         String ip = request.getHeader("x-forwarded-for");

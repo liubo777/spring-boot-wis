@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 配置参数类
  * Created by liuBo
  * 2019/12/9.
  */
@@ -17,6 +18,8 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class WisSecurityConfigurationProperty {
+    @Builder.Default
+    String defaultLoginUrl = "/login";
     @Builder.Default
     String mode = "simple";
     @Builder.Default
@@ -33,6 +36,31 @@ public class WisSecurityConfigurationProperty {
     List<String> corsMethods = new ArrayList(){{add("GET");add("POST");}};
     @Builder.Default
     String corsPattern = "/**";
-    List<WisSecurityItem> securityItems;
+    List<PropItem> propItems;
+
+
+
+    class PropItem {
+        String name;
+        String val;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getVal() {
+            return val;
+        }
+
+        public void setVal(String val) {
+            this.val = val;
+        }
+    }
 
 }
+
+
