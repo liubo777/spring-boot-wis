@@ -52,10 +52,10 @@ public class RSA_Encrypt {
         privateKey = (RSAPrivateKey) kp.getPrivate();
         /** save public key to file as text */
 
-        writePublicKey(PUBLIC_KEY_FILE, false);
-        writePublicKey(PUBLIC_KEY_FILE + ".base64", true);
-        writePrivateKey(PRIVATE_KEY_FILE, false);
-        writePrivateKey(PRIVATE_KEY_FILE + ".base64", true);
+        writePublicKey(PUBLIC_KEY_FILE+".k", false);
+        writePublicKey(PUBLIC_KEY_FILE + ".base64"+".k", true);
+        writePrivateKey(PRIVATE_KEY_FILE+".k", false);
+        writePrivateKey(PRIVATE_KEY_FILE + ".base64"+".k", true);
     }
 
     /**
@@ -165,7 +165,7 @@ public class RSA_Encrypt {
     public static void getPrivateKey(boolean useBase64) throws Exception {
         if (privateKey == null) {
             InputStream in = RSA_Encrypt.class
-                    .getResourceAsStream("/" + PRIVATE_KEY_FILE + (useBase64 ? ".base64" : ""));
+                    .getClassLoader().getResourceAsStream(PRIVATE_KEY_FILE + (useBase64 ? ".base64" : "")+".k");
             getPrivateKey(in, useBase64);
         }
     }
@@ -217,7 +217,7 @@ public class RSA_Encrypt {
     public static void getPublicKey(boolean useBase64) throws Exception {
         if (publicKey == null) {
             InputStream in = RSA_Encrypt.class
-                    .getResourceAsStream("/" + PUBLIC_KEY_FILE + (useBase64 ? ".base64" : ""));
+                    .getClassLoader().getResourceAsStream(PUBLIC_KEY_FILE + (useBase64 ? ".base64" : "")+".k");
             getPublicKey(in, useBase64);
         }
     }
