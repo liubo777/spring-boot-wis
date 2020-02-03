@@ -30,11 +30,11 @@ public class SimpleConfiguration {
         return WisSecurityConfigurationProperty.builder().build();
     }
     @Bean
-    @ConditionalOnExpression("'${wis.security.cors-approve[0]:}'.length()>0 ")
+    @ConditionalOnExpression("'${wis.security.cors-origins[0]:}'.length()>0 ")
     public CorsConfigurationSource corsConfigurationSource(){
         CorsConfiguration configuration = new CorsConfiguration();
         WisSecurityConfigurationProperty wisSecurityConfigurationProperty = wisSecurityConfigurationProperty();
-        configuration.setAllowedOrigins(wisSecurityConfigurationProperty.getCorsApprove());
+        configuration.setAllowedOrigins(wisSecurityConfigurationProperty.getCorsOrigins());
         configuration.setAllowedMethods(wisSecurityConfigurationProperty.getCorsMethods());
         configuration.setAllowCredentials(true);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

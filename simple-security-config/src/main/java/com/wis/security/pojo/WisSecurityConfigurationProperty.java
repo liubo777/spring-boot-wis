@@ -27,39 +27,29 @@ public class WisSecurityConfigurationProperty {
     @Builder.Default
     Boolean captcha = true;
     @Builder.Default
+    Boolean session = true;
+    @Builder.Default
     String errorPage="/500";
+    @Builder.Default
+    Boolean csrfEnabled = true;
+    //不验证csrf的url
     List<String> csrfIgnore;
     //不经过spring security 验证
     List<String> securityIgnore;
-    List<String> corsApprove;
+
+    @Builder.Default
+    Boolean corsEnabled = false;
     @Builder.Default
     List<String> corsMethods = new ArrayList(){{add("GET");add("POST");}};
     @Builder.Default
-    String corsPattern = "/**";
-    List<PropItem> propItems;
-
-
-
-    class PropItem {
-        String name;
-        String val;
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getVal() {
-            return val;
-        }
-
-        public void setVal(String val) {
-            this.val = val;
-        }
-    }
+    String corsPattern = "/api/**";
+    @Builder.Default
+    List<String> corsOrigins = new ArrayList(){{add("*");}};
+    String jwtSecret;
+    @Builder.Default
+    Integer jwtExpireSecond = 3600;
+    //jwt过滤器校验的url
+    List<String> jwtApprove = new ArrayList(){{add("/api/**");}};;
 
 }
 
