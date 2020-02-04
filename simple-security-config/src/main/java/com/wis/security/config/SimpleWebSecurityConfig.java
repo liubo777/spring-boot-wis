@@ -88,7 +88,13 @@ public class SimpleWebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .loginPage("/login")
                     .successHandler(loginSuccessHandler())
                     .failureHandler(loginErrorHandler())
-                    .permitAll();
+                    .permitAll()
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login")
+                .invalidateHttpSession(true);
+
 
         http.exceptionHandling().accessDeniedPage(wisSecurityConfigurationProperty.getErrorPage());
 
