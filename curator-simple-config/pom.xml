@@ -6,7 +6,7 @@
         <groupId>com.wis.springboot</groupId>
         <artifactId>spring-boot-wis</artifactId>
         <version>1.0</version>
-        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
+<!--        <relativePath>../pom.xml</relativePath> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
     </parent>
     <groupId>com.wis.curator</groupId>
     <artifactId>curator-simple-config</artifactId>
