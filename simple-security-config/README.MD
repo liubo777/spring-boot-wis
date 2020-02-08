@@ -173,4 +173,6 @@ wis:
     }
 
 ```
+##### 注意：  
+RSA_Encrypt.decrypt使用的解密，需要公钥前端加密配合。可以先使用RSA_Encrypt.generateKeyPair()生成一对后来使用。
 
