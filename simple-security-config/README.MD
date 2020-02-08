@@ -6,13 +6,6 @@
 wis:
   security:
     security-ignore:
-      - /core/**
-      - /img/**
-      - /sass/**
-      - /css/**
-      - /error/**
-      - /fonts/**
-      - /js/**
       - /static/**
 ```
 
@@ -117,19 +110,8 @@ wis:
 wis:
   security:
     security-ignore:
-      - /core/**
-      - /img/**
-      - /sass/**
-      - /css/**
-      - /error/**
-      - /fonts/**
-      - /js/**
       - /static/**
-      - /reg/
-      - /reg/sendphonecode
-      - /reg/getphonecode
-      - /reg/save
-      - /reg/forgetpass/**
+  
     #jwt加密的secret字符串
     jwt-secret: 12345678999999
     #令牌过期时间
