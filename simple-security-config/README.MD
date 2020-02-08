@@ -110,5 +110,67 @@ wis:
 
 ```
 
+### jwt校验
 
+#### application.yml: 
+```$xslt
+wis:
+  security:
+    security-ignore:
+      - /core/**
+      - /img/**
+      - /sass/**
+      - /css/**
+      - /error/**
+      - /fonts/**
+      - /js/**
+      - /static/**
+      - /reg/
+      - /reg/sendphonecode
+      - /reg/getphonecode
+      - /reg/save
+      - /reg/forgetpass/**
+    #jwt加密的secret字符串
+    jwt-secret: 12345678999999
+    #令牌过期时间
+    jwt-expire-second: 3600
+    #需要jwt校验的url pattern
+    jwt-approve:
+      - /api/**
+```
+
+#### 使用（混合jwt的校验）:  
+```java
+
+    public class CustomerLoginSuccessHandler extends LoginSuccessHandler {
+    
+        @Autowired
+        private UserDetailMapper userDetailMapper;
+        @Autowired
+        private WisSecurityConfigurationProperty wisSecurityConfigurationProperty;
+    
+        @Override
+        public void onLogonSuccess(HttpServletRequest request, HttpServletResponse response,
+                                      Authentication authentication) {
+            //输出登录提示信息
+            String authName = authentication.getName();
+            if (authName != null) {
+                //验证通过的处理
+                //保存当前用户的信息
+                Map<String,Object> dto = userDetailMapper.findUserByName(authName);
+               
+                Map<String,String> claims = new HashMap<>();
+                claims.put("userId",user.getUserId());
+                claims.put("role",user.getRole());
+    
+                String token = JwtUtils.createToken(wisSecurityConfigurationProperty.getJwtSecret(),wisSecurityConfigurationProperty.getJwtExpireSecond(),claims,user.getUsername());
+                response.addHeader("token","Bearer " +token);
+                request.getSession().setAttribute(Constant.KEY_LOGIN_USER, dto);
+    
+            }
+        }
+    
+    }
+
+```
 
