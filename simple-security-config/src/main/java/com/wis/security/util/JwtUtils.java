@@ -24,12 +24,10 @@ public class JwtUtils {
         Algorithm algorithm = Algorithm.HMAC256(secret);
         Map map = new HashMap();
         JWTVerifier verifier = JWT.require(algorithm)
-                .withIssuer("auth0")
                 .build(); //Reusable verifier instance
         DecodedJWT jwt ;
         try {
             jwt = verifier.verify(token);
-            map.put("subject",jwt.getSubject());
             jwt.getClaims().keySet().stream().forEach(k->{
                 map.put(k,jwt.getClaim(k).isNull()?"":jwt.getClaim(k).asString());
             });
@@ -41,14 +39,14 @@ public class JwtUtils {
         return map;
     }
 
-    public static String createToken(String secret,Integer expireSecond,Map<String,String> claims,String user){
+    public static String createToken(String secret,Integer expireSecond,Map<String,String> claims){
         Algorithm algorithm = Algorithm.HMAC256(secret);
         LocalDateTime time = LocalDateTime.now();
         Date now = Date.from(time.atZone(ZoneId.systemDefault()).toInstant());
         time = time.plusSeconds(expireSecond);
         Date date = Date.from(time.atZone(ZoneId.systemDefault()).toInstant());
         JWTCreator.Builder builder =JWT.create()
-                .withIssuer("auth0").withSubject(user).withIssuedAt(now);
+                .withIssuedAt(now);
         if (claims!=null){
             claims.keySet().stream().forEach(k->{
                 builder.withClaim(k,claims.get(k));
@@ -56,4 +54,20 @@ public class JwtUtils {
         }
         return builder.withExpiresAt(date).sign(algorithm);
     }
+    public static String createToken(String secret,Integer expireSecond,Map<String,String> claims,ZoneId zoneId){
+        Algorithm algorithm = Algorithm.HMAC256(secret);
+        LocalDateTime time = LocalDateTime.now(zoneId);
+        Date now = Date.from(time.atZone(zoneId).toInstant());
+        time = time.plusSeconds(expireSecond);
+        Date date = Date.from(time.atZone(zoneId).toInstant());
+        JWTCreator.Builder builder =JWT.create()
+                .withIssuedAt(now);
+        if (claims!=null){
+            claims.keySet().stream().forEach(k->{
+                builder.withClaim(k,claims.get(k));
+            });
+        }
+        return builder.withExpiresAt(date).sign(algorithm);
+    }
+
 }

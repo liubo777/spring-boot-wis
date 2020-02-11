@@ -23,7 +23,7 @@ public class DefaultJwtLoginSuccessHandler extends LoginSuccessHandler {
         String authName = authentication.getName();
         if (authName != null) {
             //验证通过的处理
-            String token = JwtUtils.createToken(wisSecurityConfigurationProperty.getJwtSecret(),wisSecurityConfigurationProperty.getJwtExpireSecond(),null,authName);
+            String token = JwtUtils.createToken(wisSecurityConfigurationProperty.getJwtSecret(),wisSecurityConfigurationProperty.getJwtExpireSecond(),null);
             response.addHeader("token", "Bearer " + token);
         }
     }
