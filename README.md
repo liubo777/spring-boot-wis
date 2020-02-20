@@ -12,6 +12,9 @@
 3.[simple-security-config](https://github.com/liubo777/spring-boot-wis/tree/master/simple-security-config)
 
 
+4.[simple-redis-lock](https://github.com/liubo777/spring-boot-wis/tree/master/simple-redis-lock)
+
+
 
 
 
