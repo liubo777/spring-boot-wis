@@ -111,6 +111,7 @@
         <module>curator-simple-config</module>
         <module>mybatis-multi-db</module>
         <module>simple-security-config</module>
+        <module>simple-redis-lock</module>
     </modules>
 
 
