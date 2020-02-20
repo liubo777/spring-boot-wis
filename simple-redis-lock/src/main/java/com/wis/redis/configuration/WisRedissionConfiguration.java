@@ -11,7 +11,9 @@ import org.redisson.config.ClusterServersConfig;
 import org.redisson.config.Config;
 import org.redisson.config.SingleServerConfig;
 import org.redisson.connection.balancer.LoadBalancer;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,6 +26,7 @@ import org.springframework.util.StringUtils;
  */
 @Configuration
 @Import({LockAspect.class})
+@ConditionalOnExpression("'${wis.redisson.multipleServerProperty.nodeAddresses[0]:}'.length()>0 or '${wis.redisson.singleServerProperty.address:}'.length()>0 ")
 public class WisRedissionConfiguration {
     @Bean
     @ConfigurationProperties(prefix = "wis.redisson")
@@ -55,6 +58,7 @@ public class WisRedissionConfiguration {
         config.setUseScriptCache(redisProperty.getUseScriptCache());
         config.setMinCleanUpDelay(redisProperty.getMinCleanUpDelay());
         config.setMaxCleanUpDelay(redisProperty.getMaxCleanUpDelay());
+
         switch (redisProperty.getRedisModel()){
             case SINGLE:
                 SingleServerConfig singleServerConfig = config.useSingleServer();
