@@ -25,6 +25,12 @@ public @interface RedisLock {
     int index() default -1;
 
     /**
+     * key的前缀，为空时，默认前缀是类名+方法名
+     * @return
+     */
+    String prefix() default "";
+
+    /**
      * 锁超时时间,默认30000毫秒(可在配置文件全局设置)
      * @return
      */

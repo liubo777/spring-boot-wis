@@ -35,7 +35,12 @@ public class LockAspect {
 
     @Around("@annotation(redisLock)")
     public Object around(ProceedingJoinPoint joinPoint, RedisLock redisLock) throws Throwable{
-        String key = joinPoint.getSignature().getDeclaringTypeName()+"-"+joinPoint.getSignature().getName();
+        String key = "";
+        if ("".equals(redisLock.prefix())){
+            key = joinPoint.getSignature().getDeclaringTypeName()+"-"+joinPoint.getSignature().getName();
+        }else{
+            key = redisLock.prefix();
+        }
         if (redisLock.index()!=-1&&joinPoint.getArgs().length>redisLock.index()){
             key += joinPoint.getArgs()[redisLock.index()].toString();
         }
